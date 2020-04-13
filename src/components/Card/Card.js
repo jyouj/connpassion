@@ -3,8 +3,7 @@ import React, {Component} from 'react';
 class Card extends Component {
     state = {books: []}
 
-    componentDidMount() {
-        console.log(this.props.match.params.lang)
+    getGoogleBooks() {
         const url = new URL('https://www.googleapis.com/books/v1/volumes');
         url.searchParams.append('q', this.props.match.params.lang);
         console.log(url.toString());
@@ -18,15 +17,39 @@ class Card extends Component {
         })
     }
 
-    componentDidUpdate() {
+    componentDidMount() {
         console.log(this.props.match.params.lang)
+        this.getGoogleBooks()
+        /*const url = new URL('https://www.googleapis.com/books/v1/volumes');
+        url.searchParams.append('q', this.props.match.params.lang);
+        console.log(url.toString());
+        fetch(url, {
+            mode: 'cors',
+        }).then(res => {
+            return res.json();
+        }).then(json => {
+            this.setState({books: json.items});
+            console.log(this.state.books);
+        })*/
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.match.params.lang !== prevProps.match.params.lang) {
+            console.log(this.props.match.params.lang)
+            this.getGoogleBooks()
+        }
+        
     }
 
     render() {
-        var urlPass = this.props.match.params.lang
-
         return(
-            <div>{urlPass}完全に理解した</div>
+            <div>{ this.state.books.map((book, idx) => {
+                return <ul key={idx}>
+                        <li><h3>{book.volumeInfo.title}</h3></li>
+                        <li><h5>{book.volumeInfo.authors}</h5></li>
+                    </ul>
+            }) }
+            </div>
         );
     }
 }
