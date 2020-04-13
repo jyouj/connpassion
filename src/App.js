@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   render () {
-    const langs = ["python", "javascript", "go", "React", "Swift"];
+    const langs = ["python", "javascript", "go", "react", "swift"];
 
     return(
       <div>
