@@ -1,31 +1,25 @@
 import React, { Component } from 'react';
-import {Switch, Route, Link} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 import './App.css';
 
 import Card from './components/Card/Card'
+import Header from './components/Header/Header'
 
 class App extends Component {
-  state = {
-    query: ''
-  }
-
-  setLang(lang) {
-    this.setState({query: lang})
-  }
-
   render () {
     const langs = ["python", "javascript", "go", "react", "swift"];
 
     return(
       <div>
-        <header>
+        <Header langList={langs} />
+        {/*<header>
           <h2><Link to='/'>Connpassion</Link></h2>
           <ul>{ langs.map((lang, idx) => {
-            return <li key={idx} onClick={this.setLang.bind(this, lang)}>
+            return <li key={idx}>
               <Link to={'/' + lang}>{lang}</Link></li>
             }) }
           </ul>
-        </header>
+          </header>*/}
         <div>
           <Switch>
             <Route exact path="/">表示したい言語を選んでください</Route>
