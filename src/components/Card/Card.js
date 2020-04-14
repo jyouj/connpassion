@@ -10,25 +10,21 @@ class Card extends Component {
     getGoogleBooks() {
         const url = new URL('https://www.googleapis.com/books/v1/volumes');
         url.searchParams.append('q', this.props.match.params.lang);
-        console.log(url.toString());
         fetch(url, {
             mode: 'cors',
         }).then(res => {
             return res.json();
         }).then(json => {
             this.setState({books: json.items});
-            console.log(this.state.books);
         })
     }
 
     componentDidMount() {
-        console.log(this.props.match.params.lang)
         this.getGoogleBooks()
     }
 
     componentDidUpdate(prevProps) {
         if (this.props.match.params.lang !== prevProps.match.params.lang) {
-            console.log(this.props.match.params.lang)
             this.getGoogleBooks()
         }
         
@@ -38,10 +34,6 @@ class Card extends Component {
         return(
             <div className="container">{ this.state.books.map((book, idx) => {
                 return <Box key={idx} bookInfo={book} />
-                /*<ul key={idx}>
-                        <li><h3>{book.volumeInfo.title}</h3></li>
-                        <li><h5>{book.volumeInfo.authors}</h5></li>
-                    </ul>*/
                 }) }
             </div>
         );

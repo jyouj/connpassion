@@ -8,7 +8,7 @@ const Header = (props) => {
     return (
         <header className="header-s">
             <div className="logo-img">
-                <Link to='/'><h1 className="title" style={{color: 'black'}}>Livre</h1></Link>
+                <Link to='/'><h1 className="title font-title" style={{color: 'black'}}>Livre</h1></Link>
             </div>
             <div className="tabs">
                 <ul>{ props.langList.map((lang, idx) => {

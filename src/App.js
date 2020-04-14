@@ -11,7 +11,7 @@ class App extends Component {
     const langs = ["Python", "Go", "Ruby", "Java", "PHP", "Swift", "Kotlin", "JavaScript", "React", "Vue", "Angular", "TypeScript", "C++", "C", "SQL", "Scala", "R", "CSS"];
 
     return(
-      <div>
+      <div className="app">
         <Header langList={langs} />
         <div className="card-dist">
           <Switch>
