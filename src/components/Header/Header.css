@@ -1,0 +1,11 @@
+.header-s {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.logo-img {
+    padding-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

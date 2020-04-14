@@ -7,19 +7,11 @@ import Header from './components/Header/Header'
 
 class App extends Component {
   render () {
-    const langs = ["python", "javascript", "go", "react", "swift"];
+    const langs = ["Python", "Go", "Ruby", "Java", "PHP", "Swift", "Kotlin", "JavaScript", "React", "Vue", "Angular", "TypeScript", "C++", "C", "SQL", "Scala", "R", "CSS"];
 
     return(
-      <div>
+      <div className="app-back">
         <Header langList={langs} />
-        {/*<header>
-          <h2><Link to='/'>Connpassion</Link></h2>
-          <ul>{ langs.map((lang, idx) => {
-            return <li key={idx}>
-              <Link to={'/' + lang}>{lang}</Link></li>
-            }) }
-          </ul>
-          </header>*/}
         <div>
           <Switch>
             <Route exact path="/">表示したい言語を選んでください</Route>
