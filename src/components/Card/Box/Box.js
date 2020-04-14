@@ -9,7 +9,13 @@ const Box = (props) => {
             <article className="media">
                 <div className="media-left">
                     <figure className="image is-128x128">
-                        {/*<img src={props.bookInfo.volumeInfo.imageLinks.smallThumbnail} alt=""/>*/}
+                        { (() => {
+                            if (props.bookInfo.volumeInfo.imageLinks == null) {
+                                return <span>No Image</span>
+                            } else {
+                                return <img src={props.bookInfo.volumeInfo.imageLinks.smallThumbnail} alt=""/>
+                            }}
+                        ) ()}
                     </figure>
                 </div>
                 <div className="media-content">
