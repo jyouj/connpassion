@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 
+import Box from './Box/Box'
+
+import './Card.css'
+
 class Card extends Component {
     state = {books: []}
 
@@ -32,12 +36,13 @@ class Card extends Component {
 
     render() {
         return(
-            <div>{ this.state.books.map((book, idx) => {
-                return <ul key={idx}>
+            <div className="container">{ this.state.books.map((book, idx) => {
+                return <Box key={idx} bookInfo={book} />
+                /*<ul key={idx}>
                         <li><h3>{book.volumeInfo.title}</h3></li>
                         <li><h5>{book.volumeInfo.authors}</h5></li>
-                    </ul>
-            }) }
+                    </ul>*/
+                }) }
             </div>
         );
     }
